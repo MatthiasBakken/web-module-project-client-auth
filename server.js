@@ -72,7 +72,15 @@ app.post('/api/login', (req, res) => {
       .status(403)
       .json({ error: 'Username or Password incorrect. Please see Readme' });
   }
+} );
+
+app.post("/api/logout", (req, res) => {
+  //remove token from database
+  res.status(200).json({
+    payload: token
+  });
 });
+
 
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
